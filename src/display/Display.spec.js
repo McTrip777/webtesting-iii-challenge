@@ -11,3 +11,21 @@ describe('<Display />', () => {
       expect(tree).toMatchSnapshot();
     });
 });
+
+describe('red/green', () => {
+  it('should confirm the Displays color green', () => {
+      const lockedClass = jest.fn();
+      const props = {
+        closed: false,
+        locked: false
+      } 
+
+      const {getByClassName} = render(<Display {...props} className={lockedClass}/>);
+
+      fireEvent.click(getByClassName(/lockedClass/i))
+      // fireEvent.click(getByText(/locked/i))
+
+      expect(lockedClass).toHaveBeenCalled()
+  }); 
+
+});
