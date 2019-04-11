@@ -11,17 +11,27 @@ describe('<DashBoard />', () => {
       expect(tree).toMatchSnapshot();
     });
 
-// describe('Display/Controls', () => {
-//   it('should confirm the display of Dashboard', () => {
-    
-//   })
+describe('Basically the App of this file', () => {
+  it('should confirm unlocked', () => {
+    const { getByText } = render(<Dashboard />);
+
+		getByText(/unlocked/i);
+  })
   
+  it('should confirm open', () => {
+    const { getByText } = render(<Dashboard />);
 
-// })
+		getByText(/open/i);
+  })
+  it('should confirm lock gate', () => {
+    const { getByText } = render(<Dashboard />);
 
+		getByText(/lock gate/i);
+  })
+  it('should confirm close gate', () => {
+    const { getByText } = render(<Dashboard />);
 
-
-
-
-
+		getByText(/close gate/i);
+  })
+})
 });
